@@ -1,0 +1,23 @@
+server:
+  port: 10010
+eureka:
+  client:
+    service-url:
+       defaultZone: http://127.0.0.1:10086/eureka #服务的地址
+zuul:
+  routes:
+     hehe:
+       path: /user-service/** #加一个网关前缀
+       serviceId: cloud-service  #与服务名称一致               # url: http://127.0.0.1:8081 #转发的路径
+  ignored-services:
+     consumer-service #过滤，禁止这个服务
+hystrix:
+  command:
+    default:
+       execution:
+          isolation:
+             thread:
+                timeoutInMilliseconds: 6000
+ribbon:
+  connectionTimeout: 500
+  ReadTimeout: 2000

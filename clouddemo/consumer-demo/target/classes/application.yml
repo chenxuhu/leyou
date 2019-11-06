@@ -1,0 +1,12 @@
+server:
+  port: 8088
+spring:
+  application:
+    name: consumer-service
+eureka:
+  client:
+    service-url:
+       defaultZone: http://127.0.0.1:10086/eureka #服务连接
+feign:
+  hystrix:
+    enabled: true # 开启Feign的熔断功能
